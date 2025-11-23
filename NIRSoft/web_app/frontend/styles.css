@@ -1,0 +1,201 @@
+body {
+    background: linear-gradient(120deg, #141e30 0%, #243b55 100%);
+    color: #e0e6ed;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #162447;
+    color: #e0e6ed;
+    padding: 24px 0 12px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.button {
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    background: #35424a;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #2c3e50;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+}
+
+#content {
+    background: #1f4068;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 32px 40px;
+    margin-top: 32px;
+    min-width: 350px;
+    transition: all 0.5s cubic-bezier(.4,2.08,.55,.44);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: 1px solid #3a506b;
+    background: #232946;
+    color: #e0e6ed;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    background: #1b1b2f;
+    color: #e0e6ed;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #324a6d;
+}
+
+pre#result {
+    background: #232946;
+    color: #eebbc3;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 1em;
+    overflow-x: auto;
+}
+
+#graphs-section {
+    background: #232946;
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-right: 24px;
+    min-width: 350px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(.4,2.08,.55,.44);
+}
+
+#graph-list li {
+    background: #1f4068;
+    color: #e0e6ed;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#graph-list li.selected, #graph-list li:hover {
+    background: #324a6d;
+    color: #ffd6e0;
+}
+
+#graph-preview {
+    max-width: 100%;
+    margin-top: 10px;
+    display: none;
+    border: 2px solid #324a6d;
+    border-radius: 8px;
+    background: #141e30;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+@media (min-width: 900px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    #content {
+        min-width: 350px;
+        max-width: 400px;
+        margin-left: 0;
+        margin-right: 40px;
+        transition: transform 0.5s cubic-bezier(.4,2.08,.55,.44);
+    }
+    #graphs-section {
+        min-width: 400px;
+        max-width: 600px;
+        margin-left: 40px;
+        margin-right: 0;
+        transition: flex 0.5s cubic-bezier(.4,2.08,.55,.44);
+    }
+    /* Grafik seçildiğinde input sağa kayar */
+    body.graphic-selected #content {
+        order: 2;
+        margin-left: 40px;
+        margin-right: 0;
+        transform: translateX(40vw);
+    }
+    body.graphic-selected #graphs-section {
+        order: 1;
+        margin-left: 0;
+        margin-right: 40px;
+        flex: 1 1 60vw;
+    }
+    body.graphic-selected #graph-preview {
+        display: block !important;
+        max-width: 90vw;
+        max-height: 80vh;
+        margin: 0 auto;
+        border: 3px solid #eebbc3;
+        background: #141e30;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+    }
+    body.graphic-selected #graph-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+    body.graphic-selected #graph-list li {
+        margin: 8px 12px;
+        min-width: 120px;
+        text-align: center;
+        border: 2px solid #324a6d;
+        background: #1f4068;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.1em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+}

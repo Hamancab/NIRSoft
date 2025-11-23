@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fNIRS Analiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="formContainer">
+      <h1>fNIRS Analiz</h1>
+      <form id="analysisForm">
+        <label for="name">Hasta Adı:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="patient_id">Hasta ID:</label>
+        <input type="text" id="patient_id" name="patient_id">
+
+        <label for="dob">Doğum Tarihi:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="analysis_date">Analiz Tarihi:</label>
+        <input type="date" id="analysis_date" name="analysis_date">
+
+        <label for="gender">Cinsiyet:</label>
+        <select id="gender" name="gender">
+          <option value="">Seçiniz</option>
+          <option value="Male">Erkek</option>
+          <option value="Female">Kadın</option>
+        </select>
+
+        <label for="protocol_name">Protokol Adı:</label>
+        <input type="text" id="protocol_name" name="protocol_name">
+
+        <label for="diagnosis">Tanı:</label>
+        <input type="text" id="diagnosis" name="diagnosis">
+
+        <label for="notes">Notlar:</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+
+        <label for="nirs_file">.nirs Dosyası:</label>
+        <input type="file" id="nirs_file" name="nirs_file" accept=".nirs" required>
+
+        <button type="submit" id="analyzeBtn">Analiz Et</button>
+      </form>
+    </div>
+
+    <div id="resultsContainer" class="hidden">
+      <h2>Analiz Sonuçları</h2>
+      <div id="buttonsContainer">
+        <button id="newAnalysisBtn">Yeni Analiz</button>
+        <button id="viewPdfBtn">PDF'i Aç</button>
+      </div>
+
+      <div id="graphListContainer">
+        <h3>Grafikler:</h3>
+        <ul id="graphList"></ul>
+      </div>
+
+      <div id="graphDisplay">
+        <img id="selectedGraph" src="" alt="Seçilen Grafik">
+      </div>
+    </div>
+  </div>
+
+  <div id="loadingOverlay" class="hidden">
+    <div class="loader"></div>
+    <p>Analiz yapılıyor. Lütfen bekleyiniz...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Web App Project</h1>
+    </header>
+    <main>
+        <section id="content">
+            <form id="analysis-form">
+                <label>Patient Name:<br><input type="text" id="name" name="name" required></label><br><br>
+                <label>Patient ID:<br><input type="text" id="patient_id" name="patient_id"></label><br><br>
+                <label>Birth Date:<br><input type="date" id="dob" name="dob"></label><br><br>
+                <label>Analysis Date:<br><input type="date" id="analysis_date" name="analysis_date"></label><br><br>
+                <label>Gender:<br>
+                    <select id="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label><br><br>
+                <label>Protocol Name:<br><input type="text" id="protocol_name" name="protocol_name"></label><br><br>
+                <label>Diagnosis:<br><input type="text" id="diagnosis" name="diagnosis"></label><br><br>
+                <label>Notes:<br><textarea id="notes" name="notes" rows="3"></textarea></label><br><br>
+                <label>.nirs File:<br><input type="file" id="nirs_file" name="nirs_file" accept=".nirs" required></label><br><br>
+                <button type="submit">Run Analysis</button>
+            </form>
+            <hr>
+            <div id="pdf-section" style="display:none; margin-bottom: 20px;">
+              <button id="open-pdf-btn">PDF'yi Aç</button>
+            </div>
+            <div id="graphs-section" style="display:none;">
+              <h3>Grafikler</h3>
+              <ul id="graph-list" style="list-style:none; padding:0;"></ul>
+              <img id="graph-preview" src="" alt="Grafik" style="max-width:100%; margin-top:10px; display:none; border:1px solid #ccc;" />
+            </div>
+            <pre id="result"></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Web App Project</p>
+    </footer>
+    <div id="loading-spinner" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:9999;justify-content:center;align-items:center;flex-direction:column;">
+      <div style="background:#fff;padding:30px 50px;border-radius:10px;font-size:1.5em;box-shadow:0 0 20px #333;">Yükleniyor...</div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

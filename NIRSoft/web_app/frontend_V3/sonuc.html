@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIRSoft - Analiz Sonuçları</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <header class="main-header">
+    <div class="logo">NIRSoft</div>
+    <nav class="main-nav">
+      <a href="index.html">Ana Sayfa</a>
+    </nav>
+  </header>
+  <main class="result-section" style="position: relative; z-index: 1;">
+    <div class="result-container" style="display: flex; gap: 32px; margin: 40px auto; max-width: 1200px; padding: 0 20px;">
+      <div class="result-list" style="background: rgba(24,28,47,0.98); padding: 24px; border-radius: 12px; min-width: 250px; z-index: 2;">
+        <h3 style="margin-top: 0; color: #fff; text-align: center;">Grafikler</h3>
+        <ul id="graphList" style="list-style: none; padding: 0; margin: 16px 0;">
+          <li><a href="#" onclick="showGraph('graph1.png')">graph1.png</a></li>
+          <li><a href="#" onclick="showGraph('graph2.png')">graph2.png</a></li>
+          <li><a href="#" onclick="showGraph('graph3.png')">graph3.png</a></li>
+        </ul>
+        <button id="viewPdfBtn" class="get-started" style="width: 100%; margin-top: 24px; background: #ff4b5c;">PDF Raporu Görüntüle</button>
+      </div>
+      <div class="result-graph" style="flex: 1; background: rgba(24,28,47,0.98); padding: 24px; border-radius: 12px; z-index: 2;">
+        <img id="selectedGraph" src="" alt="Seçilen Grafik" style="width: 100%; height: auto; border-radius: 8px;">
+      </div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x3a8dde,
+      backgroundColor: 0x0a0f1a,
+      points: 12.00,
+      maxDistance: 22.00,
+      spacing: 18.00
+    });
+    function showGraph(src) {
+      document.getElementById('selectedGraph').src = src;
+    }
+    document.getElementById('viewPdfBtn').onclick = function() {
+      window.open('sonuc.pdf', '_blank');
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
